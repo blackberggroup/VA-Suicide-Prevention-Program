@@ -18,7 +18,7 @@ jobs:
             username: willelder@bgsandbox.com
             password: ${{ secrets.ftp_password }}
             port: 21
-            local-dir: ./_site/
+            local-dir: ./dist/
             server-dir: suicide-prevention.bgsandbox/
             exclude: |
               **/.DS_Store
