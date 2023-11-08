@@ -58,7 +58,7 @@ const bundleJS = async (output) => {
       sourcemap: true,
       banner: `
 /**
- * Suicide Prevention Program | VA OMHSP
+ * VA Suicide Prevention Annual Report
  * Copyright 2023 Blackberg Group
  * Scripts
  *

@@ -1,11 +1,8 @@
 /*
- * Suicide Prevention Program | VA OMHSP
+ * VA Suicide Prevention Annual Report
  * Copyright 2023 Blackberg Group
  * Styles
 */
-
-// User variables
-@import "user-variables";
 
 // Configuration & utilities
 @import "variables";
@@ -38,15 +35,15 @@
 @import "bootstrap/scss/breadcrumb";
 @import "bootstrap/scss/pagination";
 @import "bootstrap/scss/badge";
-@import "bootstrap/scss/alert";
-@import "bootstrap/scss/progress";
+//@import "bootstrap/scss/alert";
+//@import "bootstrap/scss/progress";
 @import "bootstrap/scss/close";
-@import "bootstrap/scss/toasts";
+//@import "bootstrap/scss/toasts";
 @import "bootstrap/scss/modal";
 @import "bootstrap/scss/tooltip";
 @import "bootstrap/scss/popover";
-@import "bootstrap/scss/spinners";
-@import "bootstrap/scss/offcanvas";
+//@import "bootstrap/scss/spinners";
+//@import "bootstrap/scss/offcanvas";
 @import "bootstrap/scss/placeholders";
 @import "bootstrap/scss/helpers";
 @import "bootstrap/scss/utilities/api";
@@ -55,6 +52,4 @@
 @import "root";
 @import "reboot";
 @import "components";
-
-// User custom styles
-@import "user";
+@import "pages";

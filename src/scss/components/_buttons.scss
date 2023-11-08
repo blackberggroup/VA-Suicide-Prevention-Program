@@ -17,6 +17,11 @@
   &:hover,
   &:disabled,
   &.disabled { box-shadow: none !important; } // stylelint-disable-line declaration-no-important
+
+  &:not([disabled]):focus {
+    outline: 2px solid var(--#{$prefix}btn-bg);
+    outline-offset: .25rem;
+  }
 }
 
 
