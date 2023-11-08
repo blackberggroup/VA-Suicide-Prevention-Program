@@ -1,34 +1,29 @@
 @font-face {
     font-family: 'Myriad Pro';
-    font-style: 400;
-    font-weight: normal;
+    font-weight: 400;
     src: url('MYRIADPRO-REGULAR.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Myriad Pro';
-    font-style: normal;
     font-weight: 500;
     src: url('MYRIADPRO-MEDIUM.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Myriad Pro';
-    font-style: normal;
     font-weight: 700;
     src: url('MYRIADPRO-SEMIBOLD.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Myriad Pro';
-    font-style: normal;
     font-weight: 800;
     src: url('MYRIADPRO-BOLD.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Myriad Pro';
-    font-style: normal;
     font-weight: 900;
     src: url('MYRIADPRO-BLACK.woff2') format('woff2');
 }
