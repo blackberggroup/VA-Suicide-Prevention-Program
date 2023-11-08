@@ -19,7 +19,7 @@ jobs:
             password: ${{ secrets.ftp_password }}
             port: 21
             local-dir: ./dist/
-            server-dir: suicide-prevention.bgsandbox/
+            server-dir: suicide-prevention.bgsandbox.com/
             exclude: |
               **/.DS_Store
               **/.git*
