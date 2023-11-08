@@ -2,33 +2,33 @@
     font-family: 'Myriad Pro';
     font-style: 400;
     font-weight: normal;
-    src: local('Myriad Pro'), url('MYRIADPRO-REGULAR.woff') format('woff');
+    src: url('MYRIADPRO-REGULAR.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Myriad Pro';
     font-style: normal;
     font-weight: 500;
-    src: local('Myriad Pro'), url('MYRIADPRO-MEDIUM.woff') format('woff');
+    src: url('MYRIADPRO-MEDIUM.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Myriad Pro';
     font-style: normal;
     font-weight: 700;
-    src: local('Myriad Pro'), url('MYRIADPRO-SEMIBOLD.woff') format('woff');
+    src: url('MYRIADPRO-SEMIBOLD.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Myriad Pro';
     font-style: normal;
     font-weight: 800;
-    src: local('Myriad Pro'), url('MYRIADPRO-BOLD.woff') format('woff');
+    src: url('MYRIADPRO-BOLD.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Myriad Pro';
     font-style: normal;
     font-weight: 900;
-    src: local('Myriad Pro'), url('MYRIADPRO-BLACK.woff') format('woff');
+    src: url('MYRIADPRO-BLACK.woff2') format('woff2');
 }
