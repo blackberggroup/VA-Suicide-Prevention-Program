@@ -17,4 +17,4 @@ import './components/popover'
 import './components/scroll-top-button'
 import './components/smooth-scroll'
 import './components/tooltip'
-
+import './components/parallax'

@@ -345,7 +345,7 @@ $utilities: map-merge(
       values: (gradient: linear-gradient(180deg, rgba($white, .18), rgba($white, 0)))
     ),
 
-    // Traslate
+    // Translate
     "translate-middle": (
       property: transform,
       class: translate-middle,
@@ -354,6 +354,30 @@ $utilities: map-merge(
         null: translate(-50%, -50%),
         x: translateX(-50%),
         y: translateY(-50%),
+      )
+    ),
+
+    // Translate (75%)
+    "translate-three-quarter": (
+      property: transform,
+      class: translate-three-quarter,
+      responsive: false,
+      values: (
+        null: translate(-75%, -75%),
+        x: translateX(-75%),
+        y: translateY(-75%),
+      )
+    ),
+
+    // Translate Quarter (25%)
+    "translate-quarter": (
+      property: transform,
+      class: translate-quarter,
+      responsive: false,
+      values: (
+        null: translate(-25%, -25%),
+        x: translateX(-25%),
+        y: translateY(-25%),
       )
     )
   )
