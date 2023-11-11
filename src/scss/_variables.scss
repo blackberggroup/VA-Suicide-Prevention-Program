@@ -91,7 +91,7 @@ $theme-faded-colors: (
 
 // Gradients map
 $theme-gradients: (
-  "primary":              linear-gradient(90deg, $primary 0%, #8b5cf6 50%, #d946ef 100%),
+  "primary":              linear-gradient(90deg, $primary 0%, #065976 50%, #106870 100%),
   "primary-translucent":  linear-gradient(180deg, rgba($primary, 0) 0%, rgba($primary, .6) 120%),
   "dark-translucent":     linear-gradient(180deg, rgba($dark, .58) 0%, rgba($dark, .78) 100%)
 ) !default;
@@ -212,16 +212,16 @@ $text-shadow:                               0 .0625rem $gray-900 !default;
 $spacer: 1rem !default;
 $spacers: (
   0: 0,
-  1: $spacer * .25,
-  2: $spacer * .5,
-  3: $spacer,
-  4: $spacer * 1.5,
-  5: $spacer * 3,
-  6: $spacer * 6,
-  7: $spacer * 12,
-  8: $spacer * 18,
-  9: $spacer * 24,
-  10: $spacer * 32,
+  1: $spacer * .25,     //4px
+  2: $spacer * .5,      //8px
+  3: $spacer,           //16px
+  4: $spacer * 1.5,     //24px
+  5: $spacer * 3,       //48px
+  6: $spacer * 4,       //64px
+  7: $spacer * 5,       //80px
+  8: $spacer * 6.25,    //100px
+  9: $spacer * 7.5,     //120px
+  10: $spacer * 9.375,  //150px
 ) !default;
 
 
@@ -970,13 +970,13 @@ $gallery-caption-color:                     $white !default;
 
 $steps-padding-y:                           $spacer * 1.5 !default;
 $steps-padding-x:                           $spacer * 1.5 !default;
-$steps-number-size:                         7.625rem !default;
+$steps-number-size:                         9.625rem !default;
 $steps-number-border-radius:                50% !default;
 $steps-number-bg:                           $gray-100 !default;
 $steps-number-color:                        var(--#{$prefix}heading-color) !default;
 $steps-number-font-size:                    $font-size-base * 2 !default;
 $steps-number-font-weight:                  $font-weight-bold !default;
-$steps-number-inner-size:                   5.625rem !default;
+$steps-number-inner-size:                   7rem !default;
 $steps-number-inner-bg:                     $white !default;
 $steps-number-inner-box-shadow:             $box-shadow-sm !default;
 $steps-connect-width:                       var(--#{$prefix}border-width) !default;
