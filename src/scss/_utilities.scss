@@ -338,7 +338,7 @@ $utilities: map-merge(
       values: 1 2 3 4 5 6
     ),
 
-    // Update default Bootstrap graident
+    // Update default Bootstrap gradient
     "gradient": (
       property: background-image,
       class: bg,
@@ -379,6 +379,30 @@ $utilities: map-merge(
         x: translateX(-25%),
         y: translateY(-25%),
       )
+    ),
+
+    // Translate Quarter (25%)
+    "translate-topright-quarter": (
+      property: transform,
+      class: translate-topright-quarter,
+      responsive: false,
+      values: (
+        null: translate(25%, -25%),
+        x: translateX(-25%),
+        y: translateY(25%),
+      )
+    ),
+
+    // Translate Quarter (25%)
+    "translate-bottomleft-quarter": (
+      property: transform,
+      class: translate-bottomleft-quarter,
+      responsive: false,
+      values: (
+        null: translate(-25%, 25%),
+        x: translateX(25%),
+        y: translateY(-25%),
+      )
     )
   )
 );
@@ -390,6 +414,16 @@ $utilities: map-merge(
   background: linear-gradient(to right, $primary, #065976, #106870);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+// Gradient Background
+
+.bg-primary-gradient {
+  background: linear-gradient(to right, $primary, #0c3b64, #1b3051);
+}
+
+.bg-secondary-gradient {
+  background: linear-gradient(to right, $primary, #065976, #106870);
 }
 
 
