@@ -27,3 +27,31 @@
     }
   }
 }
+
+
+.annual-report {
+
+  &__circles-yellow {
+    top: 22%;
+    left: 30%;
+  }
+
+  &__circles-blue {
+    top: 22%;
+    left: 30%;
+  }
+
+  &__icon {
+
+    img {
+      width: 100px;
+      height: 100px;
+    }
+
+  }
+
+  &__icon-graph {
+    top: 50%;
+    left: 0;
+  }
+}
