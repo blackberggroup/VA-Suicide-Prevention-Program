@@ -42,16 +42,45 @@
   }
 
   &__icon {
+    z-index: 1;
 
     img {
-      width: 100px;
-      height: 100px;
+      width: 70px;
+      height: 70px;
+
+      @include media-breakpoint-up(md) {
+        width: 100px;
+        height: 100px;
+      }
+
     }
 
   }
 
   &__icon-graph {
     top: 50%;
-    left: 0;
+    left: -5%;
+  }
+
+  &__icon-infographic-1 {
+    top: 35%;
+    left: 23%;
+  }
+
+  &__icon-file {
+    top: -14%;
+    left: 25%;
+  }
+
+  &__icon-stats {
+    top: 5%;
+    left: 55%;
+  }
+
+  &__icon-infographic-2 {
+    top: 83%;
+    left: 55%;
   }
 }
+
+// Stack
