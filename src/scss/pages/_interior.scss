@@ -6,3 +6,12 @@
   border-bottom-right-radius: 90px;
 
 }
+
+.action-content {
+
+  &__video-column {
+    @include media-breakpoint-down(md) {
+      height: 300px;
+    }
+  }
+}

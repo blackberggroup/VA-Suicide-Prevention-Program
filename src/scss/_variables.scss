@@ -222,6 +222,8 @@ $spacers: (
   8: $spacer * 6.25,    //100px
   9: $spacer * 7.5,     //120px
   10: $spacer * 9.375,  //150px
+  11: $spacer * 12.5 ,  //200px
+  12: $spacer * 18.75,  //300px
 ) !default;
 
 
@@ -716,7 +718,7 @@ $card-spacer-y:                             $spacer * 1.5 !default;
 $card-spacer-x:                             $spacer * 1.5 !default;
 $card-title-spacer-y:                       $spacer * .75 !default;
 $card-title-color:                          var(--#{$prefix}heading-color) !default;
-$card-border-radius:                        $border-radius-lg !default;
+$card-border-radius:                        $border-radius-xxl !default;
 $card-bg:                                   var(--#{$prefix}body-bg) !default;
 $card-border-color:                         var(--#{$prefix}border-color) !default;
 $card-cap-padding-y:                        $card-spacer-y * .75 !default;
