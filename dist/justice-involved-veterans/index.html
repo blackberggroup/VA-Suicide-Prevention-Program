@@ -10,10 +10,11 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
     <link rel="stylesheet" media="screen" href="../assets/css/theme.min.css">
     <body>   
-    <main class="page-wrapper bg-secondary">
-
+    <main class="page-wrapper">
+      <div class=" bg-secondary">
       <section id="page-title" class="page-title">
-        <div class="page-title__wrapper page-title pt-4 pb-4 pb-md-0 pt-md-5 bg-dark">
+        <div class="page-title__wrapper page-title pt-4 pb-4 pb-md-5 pt-md-5 bg-dark">
+          <img src="../assets/images/svg/page-title-pattern.svg" class="position-absolute top-0 start-0"/>
           <div class="container">
             <div class="row">
               <div class="col-12 text-center">
@@ -26,8 +27,9 @@
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 144" preserveAspectRatio="xMidYMax meet" fill="none"><path fill="#000F1C" d="M0 144 1920 .14V0H0v144Z"/></svg> 
         </div>
       </section>
+      </div>
 
-      <section id="introduction" class="introduction pt-5 pb-6 pb-md-8">
+      <section id="introduction" class="introduction pt-5 pb-6 pb-md-6 bg-secondary">
         <div class="container">
           <div class="row">
             <div class="col-12 col-md-8 offset-0 offset-md-2">
@@ -38,15 +40,14 @@
         </div>
       </section>
 
-      <section id="action-content" class="action-content py-6 py-md-8">
-        <div class="container position-relative">
-          <img src="../assets/images/svg/dots-yellow.svg" width="185" height="185" class="position-absolute bottom-0 end-0 translate-bottomleft-quarter" />
+      <section id="action-content" class="action-content pb-6 pb-md-8 pt-6 pt-md-6 bg-secondary">
+        <div class="container">
           <div class="row">
             <div class="col-12">
               <h2>What Action Has VA Taken?</h2>
             </div>
           </div>
-          <div class="row">
+          <div class="row position-relative zindex-1">
             <div class="col-12 col-md-6 d-flex align-items-stretch">
               <div class="card d-flex flex-fill shadow-lg border-0 mb-5 mb-md-0">
                 <div class="card-body p-4 p-md-5">
@@ -68,15 +69,79 @@
                   <p class="m-0">VRSS is an easy-to-use tool that strengthens partnerships between the criminal justice facilities and VA services. Connection to these supports significantly increases employment prospects, reduces risk of homelessness, and suicide risk.</p>    
                 </div>
               </div>
-            </div>                  
+            </div>                    
           </div>
-        </div>
+          <div class="position-relative zindex-0">
+            <img src="../assets/images/svg/dots-green.svg" width="185" height="185" class="position-absolute top-100 start-0 translate-middle mt-n5 mt-md-0" />
+          </div>          
+        </div>        
       </section>   
       
-      <div class="page-divider">
+      <div class="section-divider bg-secondary">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 144" preserveAspectRatio="xMidYMax meet" fill="none"><path fill="#fff" d="m0 0 1920 143.86v.14H0V0Z"/></svg>
       </div>
+
+      <section id="what-is-next" class="bg-white pb-6 pb-m-8">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 py-3 text-center">
+              <h2>What Next?</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-8 offset-0 offset-md-2">
+              <h4>Veterans Justice Outreach</h4>
+              <p>VA has expanded outreach to justice-involved Veterans by expanding Veterans Justice Outreach (VJO) specialist positions. These roles enable VA to support more Veteran Treatment Courts as well as conduct outreach to Veterans in more local jails and other criminal justice settings.</p>
+            </div>
+          </div>  
+        </div>
+      </section>
       
+      <div class="section-divider position-relative bottom-0">
+        <svg width="1920" viewBox="0 0 1920 144" preserveAspectRatio="xMidYMax meet" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1920 9.53674e-07L0 143.86V144H1920V9.53674e-07Z" fill="#000F1C"/></svg>          
+      </div>     
+      
+      <section id="resources" class="resources pt-4 pb-6 pb-md-8 bg-dark">
+        <div class="container">
+          <div class="position-relative">
+            <img src="../assets/images/svg/curves-square-blue.svg" width="185" height="185" class="position-absolute top-0 end-0 mt-n7 mt-md-n10 me-n9" />
+          </div>
+          <div class="row">
+            <div class="col-12 text-center">
+              <h2 class="text-white">Resources</h2>
+            </div>
+          </div>
+          <div class="row mt-4 mt-md-5 position-relative zindex-1">
+            <div class="col-12 col-md-6 col-lg-4  d-flex align-items-stretch">
+              <div class="card border-0 bg-gray-800 mb-4 shadow-lg w-100">
+                <div class="card-body p-4 p-md-5 d-flex flex-column justify-content-between">
+                  <h5 class="text-white">Health Care for Re-entry Veterans Services and Resources - VA Homeless Programs</h5>
+                  <a href="https://www.va.gov/homeless/reentry.asp" class="btn btn-secondary align-self-start">Learn More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4  d-flex align-items-stretch">
+              <div class="card border-0 bg-gray-800 mb-4 shadow-lg w-100">
+                <div class="card-body p-4 p-md-5 d-flex flex-column justify-content-between">
+                  <h5 class="text-white">Preventing Suicide among Justice-Involved Veterans</h5>
+                  <a href="https://www.youtube.com/watch?v=7oRe-2POqwM" class="btn btn-secondary align-self-start">Learn More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4  d-flex align-items-stretch">
+              <div class="card border-0 bg-gray-800 mb-4 shadow-lg w-100">
+                <div class="card-body p-4 p-md-5 d-flex flex-column justify-content-between">
+                  <h5 class="text-white">Veterans Re-Entry Search Services (VRSS)</h5>
+                  <a href="https://www.youtube.com/watch?v=7oRe-2POqwM" class="btn btn-secondary align-self-start">Learn More</a>
+                </div>
+              </div>
+            </div>            
+          </div>
+          <div class="position-relative zindex-0">
+            <img src="../assets/images/svg/curves-square-orange.svg" width="185" height="185" class="position-absolute top-100 start-0 translate-middle mt-n5 mt-md-0" />
+          </div>          
+        </div>
+      </section>
 
     </main>
 
