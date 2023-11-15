@@ -870,12 +870,12 @@ $figure-caption-color:                      var(--#{$prefix}gray-600) !default;
 $breadcrumb-font-size:                      $font-size-sm !default;
 $breadcrumb-font-weight:                    $font-weight-medium !default;
 $breadcrumb-item-padding-x:                 .625rem !default;
-$breadcrumb-color:                          var(--#{$prefix}gray-600) !default;
-$breadcrumb-hover-color:                    var(--#{$prefix}gray-800) !default;
-$breadcrumb-active-color:                   var(--#{$prefix}primary) !default;
+$breadcrumb-color:                          var(--#{$prefix}gray-300) !default;
+$breadcrumb-hover-color:                    var(--#{$prefix}warning) !default;
+$breadcrumb-active-color:                   var(--#{$prefix}warning) !default;
 $breadcrumb-divider-color:                  $breadcrumb-color !default;
 $breadcrumb-divider-font-size:              1.15em !default;
-$breadcrumb-divider:                        quote("\ea55") !default;
+$breadcrumb-divider:                        quote("/") !default;
 $breadcrumb-divider-flipped:                quote("\ed3f") !default;
 
 
