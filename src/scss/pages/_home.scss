@@ -44,11 +44,13 @@
   &__circles-yellow {
     top: 22%;
     left: 30%;
+    z-index: 0;
   }
 
   &__circles-blue {
     top: 22%;
     left: 30%;
+    z-index: 0;
   }
 
   &__icon-graph {
@@ -59,21 +61,35 @@
   &__icon-infographic-1 {
     top: 35%;
     left: 23%;
+    z-index: 2;
   }
 
   &__icon-file {
-    top: -14%;
-    left: 25%;
+    top: 0%;
+    left: 15%;
+    z-index: 2;
+
+    @include media-breakpoint-up(md) {
+      top: -14%;
+      left: 25%;
+    }
   }
 
   &__icon-stats {
-    top: 5%;
-    left: 55%;
+    top: 15%;
+    left: 66%;
+    z-index: 2;
+
+    @include media-breakpoint-up(md) {
+      top: 5%;
+      left: 55%;
+    }
   }
 
   &__icon-infographic-2 {
     top: 83%;
     left: 55%;
+    z-index: 2;
   }
 }
 
