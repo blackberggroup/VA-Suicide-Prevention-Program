@@ -229,40 +229,40 @@
 
 // Stack
 /* stylelint-disable */
-:root {
-  --sg0-color-primary-hsl: 250, 84%, 54%;
-  --sg0-color-bg-hsl: 0, 0%, 100%;
-  --sg0-color-contrast-high-hsl: 230, 7%, 23%;
-  --sg0-color-contrast-higher-hsl: 230, 13%, 9%;
-  --sg0-color-bg-light-hsl: 0, 0%, 100%;
+// :root {
+//   --sg0-color-primary-hsl: 250, 84%, 54%;
+//   --sg0-color-bg-hsl: 0, 0%, 100%;
+//   --sg0-color-contrast-high-hsl: 230, 7%, 23%;
+//   --sg0-color-contrast-higher-hsl: 230, 13%, 9%;
+//   --sg0-color-bg-light-hsl: 0, 0%, 100%;
 
-  --sg0-space-sm: 75rem;
-  --sg0-space-md: 1.25rem;
-}
+//   --sg0-space-sm: 75rem;
+//   --sg0-space-md: 1.25rem;
+// }
 
-@media (min-width: 64rem){
-  :root {
-    --sg0-space-sm: 1.125rem;
-    --sg0-space-md: 2rem;
-  }
-}
+// @media (min-width: 64rem){
+//   :root {
+//     --sg0-space-sm: 1.125rem;
+//     --sg0-space-md: 2rem;
+//   }
+// }
 
-.stack-cards {
-  --stack-cards-gap: 2rem;
-  --stack-cards-item-ratio: 2/1;
-}
+// .stack-cards {
+//   --stack-cards-gap: 2rem;
+//   --stack-cards-item-ratio: 2/1;
+// }
 
-.stack-cards__item {
-  position: relative;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 1.25rem;
-  height: 0;
-  padding-bottom: calc(100%/2/1);
-  -webkit-transform-origin: center top;
-  transform-origin: center top;
-  // box-shadow:0 0.9px 1.5px rgba(0, 0, 0, 0.03),0 3.1px 5.5px rgba(0, 0, 0, 0.08),0 14px 25px rgba(0, 0, 0, 0.42);
-}
+// .stack-cards__item {
+//   position: relative;
+//   position: -webkit-sticky;
+//   position: sticky;
+//   top: 1.25rem;
+//   height: 0;
+//   padding-bottom: calc(100%/2/1);
+//   -webkit-transform-origin: center top;
+//   transform-origin: center top;
+//   box-shadow:0 0.9px 1.5px rgba(0, 0, 0, 0.03),0 3.1px 5.5px rgba(0, 0, 0, 0.08),0 14px 25px rgba(0, 0, 0, 0.42);
+// }
 
 .stack-cards__item > * {
   // position: absolute;
@@ -272,18 +272,6 @@
   // height: 100%;
   // -o-object-fit: cover;
   // object-fit: cover;
-}
-
-.sg0-inner-glow::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  pointer-events: none;
-  box-shadow: inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.075);
 }
 
 /* stylelint-enable */
