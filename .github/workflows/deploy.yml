@@ -50,7 +50,7 @@ jobs:
     - name: 👀 Lighthouse
       uses: foo-software/lighthouse-check-action@master
       with:
-        urls: 'develop-omhsp.bgsandbox.com/va-suicide-prevention-program/index.html'
+        urls: 'https://develop-omhsp.bgsandbox.com/va-suicide-prevention-program/index.html'
         device: all
         gitAuthor: ${{ github.actor }}
         gitBranch: ${{ github.ref }}
