@@ -55,7 +55,7 @@ jobs:
         awsAccessKeyId: ${{ secrets.LIGHTHOUSE_CHECK_AWS_ACCESS_KEY_ID }}
         awsBucket: ${{ secrets.LIGHTHOUSE_CHECK_AWS_BUCKET }}
         awsRegion: ${{ secrets.LIGHTHOUSE_CHECK_AWS_REGION }}
-        awsSecretAccessKey: ${{ secrets.LIGHTHOUSE_CHECK_AWS_SECRET_ACCESS_KEY }} 
+        awsSecretAccessKey: ${{ secrets.LIGHTHOUSE_CHECK_AWS_SECRET_ACCESS_KEY }}
         gitAuthor: ${{ github.actor }}
         gitBranch: ${{ github.ref }}
         gitHubAccessToken: ${{ secrets.GITHUB_TOKEN }}
