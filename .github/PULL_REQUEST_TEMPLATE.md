@@ -1,16 +1,15 @@
 ## What type of PR is this? (check all applicable)
 
-- [ ] Refactor
 - [ ] Feature
 - [ ] Bug Fix
+- [ ] Hot Fix
 - [ ] Optimization
 - [ ] Documentation Update
 
 ## Description
 
 ## Related Tickets & Documents
-- Related Issue #
-- Closes #
+- Monday Task #
 
 ## QA Instructions, Screenshots, Recordings
 
