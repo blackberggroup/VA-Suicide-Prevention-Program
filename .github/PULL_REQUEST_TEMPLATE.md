@@ -24,4 +24,6 @@ _If your PR includes UI changes, please utilize this checklist:_
 - [ ] Checked with [Google Lighthouse](https://developer.chrome.com/docs/lighthouse/overview) and addressed `Critical` and `Serious` issues?
 - [ ] Color contrast tested?
 
-## [optional] Are there any post deployment tasks we need to perform?
+## Are there any post deployment tasks we need to perform?
+- Add GA code on production
+- Proper meta tags utilized
