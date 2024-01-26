@@ -34,7 +34,10 @@ jobs:
           # Escape double quotes in JSON
           changedFiles="${changedFiles//\"/\\\"}"
 
-          newDescription="{\"body\":\"### Changed Files in this Pull Request ###\n${changedFiles}\n\n${currentDescription}\"}"
+          # Construct the JSON payload with proper formatting
+          newDescription='{"body":"### Changed Files in this Pull Request ###\n'"$changedFiles"'\n\n'"$currentDescription"'"}'
+
+          # Use echo to ensure proper JSON formatting
           echo "${newDescription}" > new_description.json
 
           curl -sSL \
