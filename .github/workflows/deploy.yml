@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - name: Check out repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
 
     - name: Get changed files
       id: get_changes
@@ -30,17 +30,20 @@ jobs:
       run: |
         changed_files="${{ steps.get_changes.outputs.changed_files }}"
         if [ -n "$changed_files" ]; then
-          echo "### Files Changed in this Pull Request ###" >> comment_body.md
-          echo "$changed_files" >> comment_body.md
-          echo "### End of Changes ###" >> comment_body.md
+          echo "### Files Changed in this Pull Request ###"
+          echo "$changed_files"
+          echo "### End of Changes ###"
 
-          cat comment_body.md
+          # Debugging output
+          echo "Repository: ${{ github.repository }}"
+          echo "Pull Request Number: ${{ github.event.number }}"
+          echo "Token: ${{ secrets.GITHUB_TOKEN }}"
 
           # Add a comment to the pull request
           token="${{ secrets.GITHUB_TOKEN }}"
           repository="${{ github.repository }}"
           pull_request="${{ github.event.number }}"
-          body=$(cat comment_body.md)
+          body=$(echo -e "### Files Changed in this Pull Request ###\n$changed_files\n### End of Changes ###")
           curl -sSL -H "Authorization: token $token" -X POST -d '{"body":"'"$body"'"}' "https://api.github.com/repos/$repository/issues/$pull_request/comments"
         else
           echo "No files changed in this pull request."
