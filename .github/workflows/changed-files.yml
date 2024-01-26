@@ -6,9 +6,9 @@ on:
       - '**/*'
 
 jobs:
-  changed_files:
+  file-list:
     runs-on: ubuntu-latest
-    name: Test changed-files
+    name: Changed files - PR Desc.
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
