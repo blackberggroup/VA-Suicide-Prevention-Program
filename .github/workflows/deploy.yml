@@ -1,23 +1,16 @@
-name: 🚀 Deploy to BGSandbox on merge
+name: 🚀 Deploy
+
 on:
-  push:
-    paths:
-      - 'dist/assets/images/**'
   pull_request:
+    types: 
+      - synchronize
+      - opened
+      - labeled
       
 jobs:
-  compress:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.head_ref }}
-      - uses: namoscato/action-tinify@v1
-        with:
-          api_key: ${{ secrets.TINIFY_API_KEY }}
   web-deploy:
     name: 🎉 Deploy
-    needs: compress
+    if: contains(github.event.pull_request.labels.*.name, 'ready for review')
     runs-on: ubuntu-latest
     steps:
     - name: 🚚 Get latest code
@@ -31,7 +24,7 @@ jobs:
         password: ${{ secrets.ftp_password }}
         port: 21
         local-dir: ./dist/
-        server-dir: develop-omhsp.bgsandbox.com/va-suicide-prevention-program/
+        server-dir: suicide-prevention.bgsandbox.com/
         exclude: |
           **/.DS_Store
           **/.git*
@@ -41,7 +34,7 @@ jobs:
           **/uswds/img/material-icons-deprecated/**
           **/uswds/img/material-icons/*
   lighthouse:
-    name: Lighthouse Scan
+    name: 👀 Lighthouse Scan
     runs-on: ubuntu-latest
     needs: web-deploy
     steps:
@@ -50,7 +43,7 @@ jobs:
     - name: 👀 Lighthouse
       uses: foo-software/lighthouse-check-action@master
       with:
-        urls: 'https://develop-omhsp.bgsandbox.com/va-suicide-prevention-program/index.html'
+        urls: 'https://suicide-prevention.bgsandbox.com/index.html'
         device: all  
         awsAccessKeyId: ${{ secrets.LIGHTHOUSE_CHECK_AWS_ACCESS_KEY_ID }}
         awsBucket: ${{ secrets.LIGHTHOUSE_CHECK_AWS_BUCKET }}
