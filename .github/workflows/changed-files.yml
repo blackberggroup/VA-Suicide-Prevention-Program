@@ -6,9 +6,9 @@ on:
       - '**/*'
 
 jobs:
-  file-list:
+  changed_files:
     runs-on: ubuntu-latest
-    name: Changed files - PR Desc.
+    name: Changed Files - Comment
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -25,23 +25,14 @@ jobs:
             echo "$file was changed"
           done
 
-      - name: Update PR description
+      - name: Post comment to pull request
         run: |
           changedFiles="${{ steps.changed-files.outputs.all_changed_files }}"
-          prNumber="${{ github.event.number }}"
-          currentDescription=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/pulls/$prNumber" | jq -r .body)
-
-          # Escape double quotes in JSON
-          changedFiles="${changedFiles//\"/\\\"}"
-
-          # Construct the JSON payload with jq
-          newDescription=$(jq -n --arg cf "$changedFiles" --arg cd "$currentDescription" '{"body":"### Changed Files in this Pull Request ###\n\($cf)\n\n\($cd)"}')
-
-          # Use echo to ensure proper JSON formatting
-          echo "${newDescription}" > new_description.json
+          commentBody="### Changed Files in this Pull Request ###\n${changedFiles}\n\n"
+          echo "${commentBody}" > comment_body.md
 
           curl -sSL \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             -H "Content-Type: application/json" \
-            -X PATCH -d "@new_description.json" \
-            "https://api.github.com/repos/${{ github.repository }}/pulls/$prNumber"
+            -X POST -d "{\"body\":\"$(cat comment_body.md)\"}" \
+            "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.number }}/comments"
