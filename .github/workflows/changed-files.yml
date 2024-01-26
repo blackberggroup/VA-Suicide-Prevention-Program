@@ -29,13 +29,19 @@ jobs:
         run: |
           changedFiles="${{ steps.changed-files.outputs.all_changed_files }}"
           prNumber="${{ github.event.number }}"
-          
+          currentDescription=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/pulls/$prNumber" | jq -r .body)
+
           # Escape double quotes in JSON
           changedFiles="${changedFiles//\"/\\\"}"
-          
-          # Update the pull request description with the new list of changed files
+
+          # Construct the JSON payload with jq, placing the changed files at the bottom
+          newDescription=$(jq -n --arg cf "$changedFiles" --arg cd "$currentDescription" '{"body":"\($cd)\n\n### Changed Files in this Pull Request ###\n\($cf)"}')
+
+          # Use echo to ensure proper JSON formatting
+          echo "${newDescription}" > new_description.json
+
           curl -sSL \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             -H "Content-Type: application/json" \
-            -X PATCH -d "{\"body\":\"## Changed Files in this Pull Request ##\n${changedFiles}\"}" \
+            -X PATCH -d "@new_description.json" \
             "https://api.github.com/repos/${{ github.repository }}/pulls/$prNumber"
