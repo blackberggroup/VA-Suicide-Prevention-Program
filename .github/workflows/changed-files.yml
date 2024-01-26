@@ -34,8 +34,8 @@ jobs:
           # Escape double quotes in JSON
           changedFiles="${changedFiles//\"/\\\"}"
 
-          # Construct the JSON payload with jq, formatting the changed files as a bullet list
-          newDescription=$(jq -n --arg cf "$changedFiles" --arg cd "$currentDescription" '{"body":"### Changed Files in this Pull Request ###\n- \($cf | split("\n") | .[])\n\n\($cd)"}')
+          # Construct the JSON payload with jq, creating a bullet point for each changed file
+          newDescription=$(jq -n --arg cf "$changedFiles" --arg cd "$currentDescription" '{"body":"### Changed Files in this Pull Request ###\n\($cf | split("\n") | map("- \(. | rtrim)"))\n\n\($cd)"}')
 
           # Use echo to ensure proper JSON formatting
           echo "${newDescription}" > new_description.json
