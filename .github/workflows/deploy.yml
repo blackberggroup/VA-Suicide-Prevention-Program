@@ -6,8 +6,44 @@ on:
       - synchronize
       - opened
       - labeled
-      
+    paths:
+      - '**/*'
+
 jobs:
+  comment-on-changes:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    - name: Get changed files
+      id: get_changes
+      run: |
+        echo "Changed files:"
+        git diff --name-only ${{ github.event.before }} ${{ github.sha }} > changed_files.txt
+        cat changed_files.txt
+        echo "::set-output name=changed_files::$(cat changed_files.txt)"
+
+    - name: Add comment with changed files
+      run: |
+        changed_files="${{ steps.get_changes.outputs.changed_files }}"
+        if [ -n "$changed_files" ]; then
+          echo "### Files Changed in this Pull Request ###" >> comment_body.md
+          echo "$changed_files" >> comment_body.md
+          echo "### End of Changes ###" >> comment_body.md
+
+          cat comment_body.md
+
+          # Add a comment to the pull request
+          token="${{ secrets.GITHUB_TOKEN }}"
+          repository="${{ github.repository }}"
+          pull_request="${{ github.event.number }}"
+          body=$(cat comment_body.md)
+          curl -sSL -H "Authorization: token $token" -X POST -d '{"body":"'"$body"'"}' "https://api.github.com/repos/$repository/issues/$pull_request/comments"
+        else
+          echo "No files changed in this pull request."
+        fi
   web-deploy:
     name: 🎉 Deploy
     if: contains(github.event.pull_request.labels.*.name, 'ready for review')
