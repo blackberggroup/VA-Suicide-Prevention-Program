@@ -30,8 +30,8 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const changedFiles = process.env.ALL_CHANGED_FILES.split('\n').filter(Boolean);
-            const commentBody = `### Changed Files in this Pull Request ###\n${changedFiles.join('\n')}\n\n`;
+            const changedFiles = process.env.ALL_CHANGED_FILES || '';
+            const commentBody = `### Changed Files in this Pull Request ###\n${changedFiles.split('\n').filter(Boolean).join('\n')}\n\n`;
 
             const { owner, repo, number } = context.issue;
             await github.issues.createComment({ owner, repo, issue_number: number, body: commentBody });
