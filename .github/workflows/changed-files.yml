@@ -31,11 +31,14 @@ jobs:
           prNumber="${{ github.event.number }}"
           currentDescription=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/pulls/$prNumber" | jq -r .body)
 
-          newDescription=$(echo -e "### Changed Files in this Pull Request ###\n${changedFiles}\n\n${currentDescription}")
-          echo "${newDescription}" > new_description.md
+          # Escape double quotes in JSON
+          changedFiles="${changedFiles//\"/\\\"}"
+
+          newDescription="{\"body\":\"### Changed Files in this Pull Request ###\n${changedFiles}\n\n${currentDescription}\"}"
+          echo "${newDescription}" > new_description.json
 
           curl -sSL \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             -H "Content-Type: application/json" \
-            -X PATCH -d "{\"body\":\"$(cat new_description.md)\"}" \
+            -X PATCH -d "@new_description.json" \
             "https://api.github.com/repos/${{ github.repository }}/pulls/$prNumber"
