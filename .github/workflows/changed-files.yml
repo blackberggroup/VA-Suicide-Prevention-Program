@@ -35,7 +35,7 @@ jobs:
           changedFiles="${changedFiles//\"/\\\"}"
 
           # Construct the JSON payload with jq, placing the changed files at the bottom in bulleted list format
-          newDescription=$(jq -n --arg cf "$changedFiles" --arg cd "$currentDescription" '{"body":"\($cd)\n\n## Changed Files in this Pull Request ##\n\($cf | split("\n") | map("- \(. | rtrim)"))"}')
+          newDescription=$(jq -n --arg cf "$changedFiles" --arg cd "$currentDescription" '{"body":"\($cd)\n\n## Changed Files in this Pull Request ##\n\($cf | split("\n") | map("- \(. | rtrim) | .[0:-1]") | join("\n"))"}')
 
           # Use echo to ensure proper JSON formatting
           echo "${newDescription}" > new_description.json
