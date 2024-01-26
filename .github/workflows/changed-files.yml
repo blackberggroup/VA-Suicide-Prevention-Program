@@ -30,21 +30,12 @@ jobs:
           changedFiles="${{ steps.changed-files.outputs.all_changed_files }}"
           prNumber="${{ github.event.number }}"
           
-          # Fetch the current pull request description
-          currentDescription=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/pulls/$prNumber" | jq -r .body)
-          
           # Escape double quotes in JSON
           changedFiles="${changedFiles//\"/\\\"}"
           
-          # Concatenate the current description with the new list of changed files
-          newDescription=$(jq -n --arg cd "$currentDescription" --arg cf "$changedFiles" '{"body":"\($cd)\n\n### Changed Files in this Pull Request ###\n\($cf)"}')
-          
-          # Use echo to ensure proper JSON formatting
-          echo "${newDescription}" > new_description.json
-          
-          # Update the pull request description with the combined content
+          # Update the pull request description with the new list of changed files
           curl -sSL \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             -H "Content-Type: application/json" \
-            -X PATCH -d "@new_description.json" \
+            -X PATCH -d "{\"body\":\"## Changed Files in this Pull Request ##\n${changedFiles}\"}" \
             "https://api.github.com/repos/${{ github.repository }}/pulls/$prNumber"
