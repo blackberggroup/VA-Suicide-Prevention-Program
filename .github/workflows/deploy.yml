@@ -6,38 +6,8 @@ on:
       - synchronize
       - opened
       - labeled
-    paths:
-      - '**/*'
-permissions:
-  contents: write
+      
 jobs:
-  update-pr-description:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Check out repository
-      uses: actions/checkout@v2
-
-    - name: Get changed files
-      id: get_changes
-      run: |
-        echo "Changed files:"
-        git diff --name-only ${{ github.event.before }} ${{ github.sha }} > changed_files.txt
-        cat changed_files.txt
-        echo "::set-output name=changed_files::$(cat changed_files.txt)"
-
-    - name: Update PR description
-      run: |
-        changed_files="${{ steps.get_changes.outputs.changed_files }}"
-        if [ -n "$changed_files" ]; then
-          current_description=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.number }}" | jq -r .body)
-
-          # Update the pull request description with the list of changed files
-          new_description=$(echo -e "### Files Changed in this Pull Request ###\n$changed_files\n\n$current_description")
-          curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -X PATCH -d '{"body":"'"$new_description"'"}' "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.number }}"
-        else
-          echo "No files changed in this pull request."
-        fi
   web-deploy:
     name: 🎉 Deploy
     if: contains(github.event.pull_request.labels.*.name, 'ready for review')
