@@ -26,12 +26,13 @@ jobs:
           done
 
       - name: Post comment to pull request
-        uses: actions/github-script@v6
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const changedFiles = process.env.ALL_CHANGED_FILES || '';
-            const commentBody = `### Changed Files in this Pull Request ###\n${changedFiles.split('\n').filter(Boolean).join('\n')}\n\n`;
+        run: |
+          changedFiles="${{ steps.changed-files.outputs.all_changed_files }}"
+          commentBody="### Changed Files in this Pull Request ###\n${changedFiles}\n\n"
+          echo "${commentBody}" > comment_body.md
 
-            const { owner, repo, number } = context.issue;
-            await github.issues.createComment({ owner, repo, issue_number: number, body: commentBody });
+          curl -sSL \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -X POST -d "{\"body\":\"$(cat comment_body.md)\"}" \
+            "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.number }}/comments"
