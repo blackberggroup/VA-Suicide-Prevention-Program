@@ -25,14 +25,17 @@ jobs:
             echo "$file was changed"
           done
 
-      - name: Post comment to pull request
+      - name: Update PR description
         run: |
           changedFiles="${{ steps.changed-files.outputs.all_changed_files }}"
-          commentBody="### Changed Files in this Pull Request ###\n${changedFiles}\n\n"
-          echo "${commentBody}" > comment_body.md
+          prNumber="${{ github.event.number }}"
+          currentDescription=$(curl -sSL -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/pulls/$prNumber" | jq -r .body)
+
+          newDescription=$(echo -e "### Changed Files in this Pull Request ###\n${changedFiles}\n\n${currentDescription}")
+          echo "${newDescription}" > new_description.md
 
           curl -sSL \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             -H "Content-Type: application/json" \
-            -X POST -d "{\"body\":\"$(cat comment_body.md)\"}" \
-            "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.number }}/comments"
+            -X PATCH -d "{\"body\":\"$(cat new_description.md)\"}" \
+            "https://api.github.com/repos/${{ github.repository }}/pulls/$prNumber"
