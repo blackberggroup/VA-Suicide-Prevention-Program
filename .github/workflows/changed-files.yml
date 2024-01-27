@@ -2,8 +2,8 @@ name: CI
 
 on:
   pull_request:
-    paths:
-      - '**/*'
+    types:
+      - opened
 
 jobs:
   file-list:
@@ -35,10 +35,9 @@ jobs:
           changedFiles="${changedFiles//\"/\\\"}"
 
           # Construct the JSON payload with jq, placing the changed files at the bottom
-          newDescription=$(jq -n --arg cf "$changedFiles" --arg cd "$currentDescription" '{"body":"\($cd)\n\n## Changed Files in this Pull Request ##\n\($cf)"}')
-         
-          # adds bullet but only one bullet newDescription=$(jq -n --arg cf "$changedFiles" --arg cd "$currentDescription" '{"body":"### Changed Files in this Pull Request ###\n\($cf | split("\n") | map("- \(.)") | join("\n"))\n\n\($cd)"}')
+          # newDescription=$(jq -n --arg cf "$changedFiles" --arg cd "$currentDescription" '{"body":"\($cd)\n\n## Changed Files in this Pull Request ##\n\($cf)"}')
 
+          newDescription=$(jq -n --arg cf "$changedFiles" --arg cd "$currentDescription" '{"body":"\($cd)\n\n## Changed Files in this Pull Request ##\n\($cf | split("\n") | join(", "))"}')
 
           # Use echo to ensure proper JSON formatting
           echo "${newDescription}" > new_description.json
