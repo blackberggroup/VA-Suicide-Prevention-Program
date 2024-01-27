@@ -40,7 +40,7 @@ jobs:
           # Construct the JSON payload with jq, placing the changed files at the bottom
           # newDescription=$(jq -n --arg cf "$changedFiles" --arg cd "$currentDescription" '{"body":"\($cd)\n\n## Changed Files in this Pull Request ##\n\($cf)"}')
           
-          newDescription=$(jq -n --arg cf "$changedFiles" --arg cd "$currentDescription" '{"body":"\($cd)\n\n## Changed Files in this Pull Request ##\n\($cf | split("\n") | join("\n"))"}')
+          newDescription=$(jq -n --arg cf "$changedFiles" --arg cd "$currentDescription" '{"body":"\($cd)\n\n## Changed Files in this Pull Request ##\n\($cf | split(" ") | join("\n"))"}')
 
           # Use echo to ensure proper JSON formatting
           echo "${newDescription}" > new_description.json
