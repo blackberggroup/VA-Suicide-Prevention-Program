@@ -10,7 +10,7 @@ on:
 jobs:
   file-list:
     runs-on: ubuntu-latest
-    name: Changed files - PR Desc.
+    name: 🖊️ Changed files - PR Desc.
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
